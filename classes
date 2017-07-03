@@ -1,0 +1,127 @@
+class Dataset:
+    def __init__(self):
+        self.type = "csv"
+
+dataset = Dataset()
+print(dataset.type)
+
+
+import csv 
+class Dataset:
+    def __init__(self, data):
+        self.type = "csv"
+        self.data = data
+
+f = open("nfl.csv")
+nfl_data = list(csv.reader(f))
+
+nfl_dataset = Dataset(nfl_data)
+dataset_data = nfl_dataset.data
+
+
+
+class Dataset:
+    def __init__(self, data):
+        self.data = data
+        
+    def print_data(self, num_rows):
+        print(self.data[:num_rows-1])
+
+nfl_dataset = Dataset(nfl_data)
+nfl_dataset.print_data(5)
+
+
+
+class Dataset:
+    def __init__(self, data):
+        self.data = data
+        self.header = self.data[0]
+        self.data = self.data[1:]     
+
+nfl_dataset = Dataset(nfl_data)
+nfl_header = nfl_dataset.header
+
+
+class Dataset:
+    def __init__(self, data):
+        self.header = data[0]
+        self.data = data[1:]
+    
+    def column(self, label):
+        index = 0
+        if label not in self.header:
+            return None
+        for idx, value in enumerate(self.header):
+            if label == value:
+                index = idx
+        col = []
+        for elem in self.data:
+            col.append(elem[index])
+        return col
+
+        
+nfl_dataset = Dataset(nfl_data)
+year_column = nfl_dataset.column('year')
+player_column = nfl_dataset.column('player')
+
+
+
+
+class Dataset:
+    def __init__(self, data):
+        self.header = data[0]
+        self.data = data[1:]
+    def column(self, label):
+        if label not in self.header:
+            return None
+        index = 0
+        for idx, element in enumerate(self.header):
+            if label == element:
+                index = idx
+        column = []
+        for row in self.data:
+            column.append(row[index])
+        return column
+    def count_unique(self, label):
+        c = self.column(label)
+        return len(set(c))
+    
+nfl_dataset = Dataset(nfl_data)
+total_years = nfl_dataset.count_unique('year')
+
+
+
+
+class Dataset:
+    def __init__(self, data):
+        self.header = data[0]
+        self.data = data[1:]
+    
+    # Add the special method here
+    
+    def column(self, label):
+        if label not in self.header:
+            return None
+        
+        index = 0
+        for idx, element in enumerate(self.header):
+            if label == element:
+                index = idx
+        
+        column = []
+        for row in self.data:
+            column.append(row[index])
+        return column
+    
+        
+    def count_unique(self, label):
+        return len(set(self.column(label)))
+    
+    def __str__(self):
+        data_string = self.data[:10]
+        return str(data_string)
+            
+
+nfl_dataset = Dataset(nfl_data)
+print (nfl_dataset.count_unique('year'))
+print(nfl_dataset)
