@@ -1,0 +1,38 @@
+gender = []
+for elem in legislators:
+    gender.append(elem[3])
+    
+gender = set(gender)
+print(gender)
+
+
+
+birthday = []
+for elem in legislators:
+    try:
+        birth_year = int(elem[2].split("-")[0])
+    except Exception:
+        birth_year = 0
+    elem.append(birth_year)
+    
+    
+    
+values = [None, 10, 20, 30, None, 50]
+checks = []
+
+for row in values:
+    checks.append(row is not None and row > 30)
+    
+
+plant_types = {"orchid": "flower", "cedar": "tree", "maple": "tree"}
+
+for key, value in plant_types.items():
+    print(key)
+    print(value)
+
+
+top_female_names = []
+
+for key, value in name_counts.items():
+    if value == 2:
+        top_female_names.append(key)
