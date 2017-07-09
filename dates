@@ -1,0 +1,56 @@
+import time
+current_time = time.time()
+print(current_time)
+
+current_time = time.time()
+current_struct_time = time.gmtime(current_time)
+current_hour = current_struct_time.tm_hour
+
+import datetime
+
+current_datetime = datetime.datetime.now()
+current_year = current_datetime.year
+current_month = current_datetime.month
+
+
+import datetime
+
+kirks_birthday = datetime.datetime(year=2233, month=3, day=22)
+diff = datetime.timedelta(weeks = 15)
+before_kirk = kirks_birthday - diff
+
+import datetime
+
+mystery_date_formatted_string = mystery_date.strftime("%I:%M%p on %A %B %d, %Y")
+print(mystery_date_formatted_string)
+
+
+import datetime
+
+mystery_date = datetime.datetime.strptime(mystery_date_formatted_string, "%I:%M%p on %A %B %d, %Y")
+print(mystery_date)
+
+
+import datetime
+
+for post in posts:
+    time = float(post[2])
+    converted_time = datetime.datetime.fromtimestamp(time)
+    post[2] = converted_time
+    
+ march_count = 0
+
+for post in posts:
+    if post[2].month == 3:
+        march_count += 1
+        
+
+def timef(var_month):
+    count = 0
+    for row in posts:
+        if row[2].month == var_month:
+            count += 1
+    return count
+
+feb_count = timef(2)
+aug_count = timef(8)
