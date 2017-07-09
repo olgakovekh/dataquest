@@ -1,0 +1,52 @@
+import re
+
+of_reddit_count = 0
+for row in posts:
+    if re.search("of Reddit", row[0]) is not None:
+        of_reddit_count += 1
+        
+        
+import re
+
+serious_start_count = 0
+serious_end_count = 0
+serious_count_final = 0
+                         
+for row in posts:
+    if re.search("^[\[\(][Ss]erious[\]\)]", row[0]) is not None:
+        serious_start_count += 1
+        
+for row in posts:
+    if re.search("[\[\(][Ss]erious[\]\)]$", row[0]) is not None:
+        serious_end_count += 1
+        
+for row in posts:
+    if re.search("^[\[\(][Ss]erious[\]\)]|[\[\(][Ss]erious[\]\)]$", row[0]) is not None:
+        serious_count_final += 1
+        
+        
+import re
+posts_new = []
+
+for row in posts:
+    row[0] = re.sub("^[\[\(][Ss]erious[\]\)]|[\[\(][Ss]erious[\]\)]$","[Serious]", row[0])
+    posts_new.append(row)
+    
+    
+import re
+
+year_strings = []
+for string in strings:
+    if re.search("[12][0-9][0-9][0-9]", string) is not None:
+        year_strings.append(string)
+        
+        
+import re
+
+year_strings = []
+for string in strings:
+    if re.search("[12][0-9]{3}", string) is not None:
+        year_strings.append(string)
+        
+        
+years=re.findall("[12][0-9]{3}", years_string)
